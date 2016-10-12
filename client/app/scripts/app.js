@@ -17,18 +17,21 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'NodemanagerCtrl',
-        controllerAs: 'nodeCtrl'
       })
       .when('/nodes', {
         templateUrl: 'views/nodes.html',
-        controller: 'NodemanagerCtrl',
-        controllerAs: 'nodeCtrl'
+        controller: 'NodesmanagerCtrl',
+        controllerAs: 'nodesCtrl'
       })
-      .when('/node/:id', {
-        templateUrl: 'views/node.html',
-        controller: 'NodemanagerCtrl',
-        controllerAs: 'nodeCtrl'
+      .when('/nodes/create/', {
+        templateUrl: 'views/node-create.html',
+        controller: 'NodesupdateCtrl',
+        controllerAs: 'nodeCreateCtrl'
+      })
+      .when('/nodes/update/:id', {
+        templateUrl: 'views/node-update.html',
+        controller: 'NodesupdateCtrl',
+        controllerAs: 'nodeUpdCtrl'
       })
       .otherwise({
         redirectTo: '/'

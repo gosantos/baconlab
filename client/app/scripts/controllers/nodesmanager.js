@@ -2,21 +2,14 @@
 
 /**
  * @ngdoc function
- * @name clientApp.controller:NodemanagerCtrl
+ * @name clientApp.controller:
  * @description
- * # NodemanagerCtrl
+ * # 
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('NodemanagerCtrl', function ($scope, $routeParams, NodeService) {
+  .controller('NodesmanagerCtrl', function ($scope, $routeParams, NodeService) {
   	$scope.nodes = NodeService.getAll();	
-
-	$scope.node = {
-		name: "",
-		intefrace: "",
-		address: "",
-		lastHeartbeat: ""
-	}
 
   	$scope.removeNode = function(nodeId){
   		NodeService.remove(nodeId);
