@@ -13,6 +13,6 @@ angular.module('clientApp')
 
   	$scope.removeNode = function(nodeId){
   		NodeService.remove(nodeId);
-  	}
+  	};
 
 });
