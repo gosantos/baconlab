@@ -9,7 +9,6 @@
  */
 angular.module('clientApp')
   .controller('NodesmanagerCtrl', function ($scope, $routeParams, NodeService) {
-  	$scope.title = 'update';
   	
   	$scope.nodes = NodeService.query();	
 
