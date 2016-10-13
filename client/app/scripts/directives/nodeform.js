@@ -7,13 +7,10 @@
  * # nodeForm
  */
 angular.module('clientApp')
-  .directive('nodeForm', function (NodeService, $routeParams) {
+  .directive('nodeForm', function () {
 
     return {
       templateUrl: '../views/node-form.html',
-      scope: { 
-      	node: NodeService.get($routeParams.id) 
-      },
       restrict: 'E'
     };
   });

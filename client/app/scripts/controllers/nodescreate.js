@@ -8,10 +8,11 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('NodescreateCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('NodescreateCtrl', function ($scope, NodeService) {
+  	$scope.node = new NodeService();
+
+  	$scope.submitNode = function(){
+  		$scope.node.$save();
+  	};
+
   });

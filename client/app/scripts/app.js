@@ -21,17 +21,14 @@ angular
       .when('/nodes', {
         templateUrl: 'views/nodes.html',
         controller: 'NodesmanagerCtrl',
-        controllerAs: 'nodesCtrl'
       })
       .when('/nodes/create/', {
         templateUrl: 'views/node-create.html',
-        controller: 'NodesupdateCtrl',
-        controllerAs: 'nodeCreateCtrl'
+        controller: 'NodescreateCtrl',
       })
       .when('/nodes/update/:id', {
         templateUrl: 'views/node-update.html',
         controller: 'NodesupdateCtrl',
-        controllerAs: 'nodeUpdCtrl'
       })
       .otherwise({
         redirectTo: '/'

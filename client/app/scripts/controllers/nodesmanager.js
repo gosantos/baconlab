@@ -9,10 +9,12 @@
  */
 angular.module('clientApp')
   .controller('NodesmanagerCtrl', function ($scope, $routeParams, NodeService) {
-  	$scope.nodes = NodeService.getAll();	
+  	$scope.nodes = NodeService.query();	
 
   	$scope.removeNode = function(nodeId){
-  		NodeService.remove(nodeId);
+  		NodeService.delete({ id: nodeId }, function(){
+  			$scope.nodes = NodeService.query();	
+  		});
   	};
 
 });
