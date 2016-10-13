@@ -1,3 +1,4 @@
+<h2 class="text-capitalize">{{title}} node </h2>
 <form>
   <div class="form-group">
     <label for="name">Name</label>
@@ -16,9 +17,6 @@
     <input type="text" ng-model="node.last_heartbeat" class="form-control" id="last_heartbeat">
   </div>
   <p>
-    <button type="button" class='btn btn-info' ng-click="submitNode()">Update</button>
+    <button type="button" class='btn btn-info text-capitalize' ng-click="submitNode()">{{title}}</button>
   </p>
-  <span>
-    {{callBackMessage}}
-  </span>
 </form>

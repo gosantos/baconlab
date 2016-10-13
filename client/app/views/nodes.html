@@ -1,22 +1,25 @@
-  <table class="table table-striped" >
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Interface</th>
-        <th>Address</th>
-        <th>Last Heartbeat	</th>
-        <th>#</th>
-        <th>#</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="node in nodes">
-        <td>{{node.name}}</td>
-        <td>{{node.iface}}</td>
-        <td>{{node.address}}</td>
-        <td>{{node.last_heartbeat | date:"MM/dd/yyyy h:mma"}}</td>
-        <td><a type="button" class='btn btn-info' ng-href="/#/nodes/update/{{node._id}}">Update</a></td>
-        <td><button type="button" class='btn btn-danger' ng-click="removeNode(node._id)">Remove</button></td>
-      </tr>
-    </tbody>
-  </table>
+<div  class="text-right">
+  <a type="button" class='btn btn-primary' ng-href="/#/nodes/create">Add Node</a>
+</div>
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Interface</th>
+      <th>Address</th>
+      <th>Last Heartbeat	</th>
+      <th>#</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="node in nodes">
+      <td>{{node.name}}</td>
+      <td>{{node.iface}}</td>
+      <td>{{node.address}}</td>
+      <td>{{node.last_heartbeat | date:"MM/dd/yyyy h:mma"}}</td>
+      <td><a type="button" class='btn btn-info' ng-href="/#/nodes/update/{{node._id}}">Update</a></td>
+      <td><button type="button" class='btn btn-danger' ng-click="removeNode(node._id)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>

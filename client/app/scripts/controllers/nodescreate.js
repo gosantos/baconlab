@@ -9,6 +9,8 @@
  */
 angular.module('clientApp')
   .controller('NodescreateCtrl', function ($scope, NodeService) {
+  	$scope.title = 'add';
+
   	$scope.node = new NodeService();
 
   	$scope.submitNode = function(){

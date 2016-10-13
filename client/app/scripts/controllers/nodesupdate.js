@@ -9,8 +9,10 @@
  */
 angular.module('clientApp')
     .controller('NodesupdateCtrl', function ($scope, $routeParams, NodeService) {
-  	$scope.node = NodeService.get({ id: $routeParams.id });	
+  	$scope.title = 'add';
 
+  	$scope.node = NodeService.get({ id: $routeParams.id });	
+  	
   	$scope.submitNode = function(){
   		$scope.node.$update();
   	};
