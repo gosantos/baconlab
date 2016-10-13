@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var Node = mongoose.model('Node');
 
 
-router.route('/new')
+router.route('/')
 
 	.post(function(req, res){
 		var node = new Node();
@@ -19,9 +19,7 @@ router.route('/new')
 
 			return res.json(node);
 		});
-	});
-
-router.route('/')
+	})
 
     .get(function(req, res){
         Node.find(function(err, nodes){
@@ -43,9 +41,7 @@ router.route('/:id')
 
 			return res.send(node);
 		});
-	});
-
-router.route('/update/:id')
+	})
 
 	.put(function(req, res){
 		Node.findById(req.params.id, function(err, node){
@@ -63,9 +59,7 @@ router.route('/update/:id')
 				return res.json(node);
 			});
 		});
-	});
-
-router.route('/remove/:id')
+	})
 
 	.delete(function(req, res){
 		Node.remove({_id: req.params.id}, function(err, node){
