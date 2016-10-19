@@ -11,7 +11,8 @@
 angular
   .module('clientApp', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'ngmqtt'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -29,6 +30,10 @@ angular
       .when('/nodes/update/:id', {
         templateUrl: 'views/node-update.html',
         controller: 'NodesupdateCtrl',
+      })
+      .when('/mqtt/', {
+        templateUrl: 'views/mqtt.html',
+        controller: 'MqttCtrl',
       })
       .otherwise({
         redirectTo: '/'
