@@ -12,6 +12,8 @@ router.route('/')
 		node.iface = req.body.iface;
 		node.name = req.body.name;
 		node.address = req.body.address;
+		node.props = req.body.props;
+
 		node.save(function(err, node){
 			if (err)
 				return res.send(500, err);
@@ -25,8 +27,8 @@ router.route('/')
         Node.find(function(err, nodes){
             if(err)
                 return res.send(500, err);
-            
-            return res.send(nodes);
+
+        	return res.send(nodes);
         });
 
     });
@@ -34,13 +36,12 @@ router.route('/')
 router.route('/:id')
 
 	.get(function(req, res){
-		console.log ('id: ' + req.params.id);
 		Node.findById(req.params.id, function(err, node){
 			if (err)
 				return res.send(err);
 
 			return res.send(node);
-		});
+		}).populate('props');
 	})
 
 	.put(function(req, res){
@@ -51,6 +52,7 @@ router.route('/:id')
 			node.iface = req.body.iface;
 			node.name = req.body.name;
 			node.address = req.body.address;
+			node.props = req.body.props;
 
 			node.save(function(err, node){
 				if (err)

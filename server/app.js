@@ -5,10 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var Node = require('./models/node');
+var Models = require('./models/models');
 
 var routes = require('./routes/index');
 var nodes = require('./routes/nodes');
+var props = require('./routes/props');
 var app = express();
 var cors = require('cors');
 
@@ -16,7 +17,7 @@ var cors = require('cors');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-mongoose.connect('mongodb://localhost:port/iotlab-test');
+mongoose.connect('mongodb://cpsiot.cs.uni-kl.de/iotlab-test');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -29,7 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-app.use('/nodes', nodes);
+app.use('/api/nodes', nodes);
+
+app.use('/api/props', props);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
