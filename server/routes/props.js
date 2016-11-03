@@ -62,6 +62,7 @@ router.route('/:id')
 			if (err)
 				return res.send(err);
 
+			prop._creator = req.body._creator;
 			prop.name = req.body.name;
 			prop.value = req.body.value;
 			prop.type = req.body.type;
