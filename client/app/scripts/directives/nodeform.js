@@ -8,7 +8,6 @@
  */
 angular.module('clientApp')
   .directive('nodeForm', function () {
-
     return {
       templateUrl: '../views/node-form.html',
       restrict: 'E'

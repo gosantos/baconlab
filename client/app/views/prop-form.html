@@ -1,0 +1,18 @@
+<h2 class="text-capitalize">{{title}} Property </h2>
+<form>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" ng-model="prop.name" class="form-control" id="name">
+  </div>
+  <div class="form-group">
+    <label for="interface">Value:</label>
+    <input type="text" ng-model="prop.value" class="form-control" id="interface">
+  </div>
+  <div class="form-group">
+    <label for="address">Type:</label>
+    <input type="text" ng-model="prop.type" class="form-control" id="address">
+  </div>
+  <p>
+    <button type="button" class='btn btn-info text-capitalize' ng-click="submitNode()">{{title}} Property</button>
+  </p>
+</form>

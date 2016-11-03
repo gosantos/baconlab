@@ -1,7 +1,7 @@
 <h2 class="text-capitalize">{{title}} node </h2>
 <form>
   <div class="form-group">
-    <label for="name">Name</label>
+    <label for="name">Name:</label>
     <input type="text" ng-model="node.name" class="form-control" id="name">
   </div>
   <div class="form-group">
@@ -15,6 +15,22 @@
   <div class="form-group">
     <label for="last_heartbeat">Last Heartbeat:</label>
     <input type="text" ng-model="node.last_heartbeat" class="form-control" id="last_heartbeat">
+  </div>
+  <div data-ng-repeat="prop in node.props">
+    <div class="form-group">
+      <label for="prop_name">Prop Name:</label>
+      <input type="text" ng-model="prop.name" class="form-control" id="prop_name">
+    </div>
+    <div class="form-group">
+      <label for="prop_value">Value:</label>
+      <input type="text" ng-model="prop.value" class="form-control" id="prop_value">
+    </div>
+    <p class="text-right">
+      <td><button type="button" class='btn btn-danger' ng-click="removeProp(prop._id)">Remove Property</button></td>
+    </p>
+  </div>
+  <div class="form-group">
+    <a type="button" class='btn btn-primary' ng-href="/#/nodes/props/create/{{node._id}}">Add prop</a>
   </div>
   <p>
     <button type="button" class='btn btn-info text-capitalize' ng-click="submitNode()">{{title}}</button>

@@ -31,11 +31,20 @@ angular
         templateUrl: 'views/node-update.html',
         controller: 'NodesupdateCtrl',
       })
-      .when('/mqtt/', {
+      .when('/nodes/props/create/:id', {
+        templateUrl: 'views/prop-create.html',
+        controller: 'PropscreateCtrl',
+      })
+      .when('/mqtt', {
         templateUrl: 'views/mqtt.html',
         controller: 'MqttCtrl',
       })
       .otherwise({
         redirectTo: '/'
       });
+
+  }).run(function($rootScope, $location){
+    $rootScope.isActive = function (viewLocation) {
+      return viewLocation === $location.path();
+    };
   });
