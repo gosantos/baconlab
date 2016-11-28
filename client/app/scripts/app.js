@@ -35,10 +35,6 @@ angular
         templateUrl: 'views/prop-create.html',
         controller: 'PropscreateCtrl',
       })
-      .when('/mqtt', {
-        templateUrl: 'views/mqtt.html',
-        controller: 'MqttCtrl',
-      })
       .otherwise({
         redirectTo: '/'
       });
