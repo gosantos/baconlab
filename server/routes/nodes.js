@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
 var mongoose = require('mongoose');
 var Node = mongoose.model('Node');
-
-var Prop = mongoose.model('Prop');
-
 
 router.route('/')
 
@@ -14,12 +10,10 @@ router.route('/')
 		node.iface = req.body.iface;
 		node.name = req.body.name;
 		node.address = req.body.address;
-		node.props = req.body.props;
 
 		node.save(function(err, node){
 			if (err)
 				return res.send(500, err);
-			
 
 			return res.json(node);
 		});
@@ -43,7 +37,7 @@ router.route('/:id')
 				return res.send(err);
 
 			return res.send(node);
-		}).populate('props');
+		});
 	})
 
 	.put(function(req, res){
@@ -54,21 +48,6 @@ router.route('/:id')
 			node.iface = req.body.iface;
 			node.name = req.body.name;
 			node.address = req.body.address;
-			node.props = req.body.props;
-
-			req.body.props.forEach(function(prop){
-				Prop.findById(prop._id, function(err, mongoProp){
-					mongoProp._creator = prop._creator;
-					mongoProp.name = prop.name;
-					mongoProp.value = prop.value;
-					mongoProp.type = prop.type;
-		
-					mongoProp.save(function(err){
-						if (err)
-							return res.send(err);
-					});
-				});			
-			});
 
 			node.save(function(err, node){
 				if (err)

@@ -1,15 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
 var mongoose = require('mongoose');
 var Prop = mongoose.model('Prop');
-
-var Node = mongoose.model('Node');
-
 
 router.route('/')
 
 	.post(function(req, res){
+
 		var prop = new Prop();
 		prop._creator = req.body._creator;
 		prop.name = req.body.name;
@@ -20,31 +17,36 @@ router.route('/')
 			if (err)
 				return res.send(500, err);
 
-			Node.findById(prop._creator, function(err, node){
-				if (err)
-					return res.send(500, err);
-
-				node.props.push(prop);
-				node.save(function(err, node){
-					if (err)
-						return res.send(err);
-				});
-			});
-
 			return res.json(prop);
 		});
 
 	})
 
     .get(function(req, res){
-        Prop.find(function(err, props){
-            if(err)
-                return res.send(500, err);
-        	
-        	return res.send(props);
-        });
-
-    });
+    	if (req.query.name && req.query._creator){
+        	Prop.findOne(req.query, function(err, props){
+	            if(err)
+	                return res.send(500, err);
+	        	
+	        	return res.send(props);
+	        });
+        }
+    	else if (req.query._creator){
+        	Prop.find(req.query, function(err, props){
+	            if(err)
+	                return res.send(500, err);
+	        	
+	        	return res.send(props);
+	        });
+        }else{
+        	Prop.find(function(err, props){
+	            if(err)
+	                return res.send(500, err);
+	        	
+	        	return res.send(props);
+	        });
+        }	
+	});
 
 router.route('/:id')
 
@@ -54,7 +56,7 @@ router.route('/:id')
 				return res.send(err);
 
 			return res.send(prop);
-		}).populate({ path: '_creator', select: 'iface address name'});
+		});
 	})
 
 	.put(function(req, res){
@@ -84,6 +86,7 @@ router.route('/:id')
 			return res.json(prop);
 		});
 	});
+
 
 
 module.exports = router;
