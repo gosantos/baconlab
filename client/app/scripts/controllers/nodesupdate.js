@@ -14,16 +14,13 @@ angular.module('clientApp')
     
     $scope.title = 'update';
 
-    $scope.node = NodeService.get({ id: $routeParams.id }); 
-    $scope.props = PropService.query({ _creator: $routeParams.id });
+    $scope.node   = {};
+    $scope.props  = {};
 
-    $scope.$watch("node", function() {
-      console.log("$scope.node has been changed");
-    });
-
-    $scope.$watch("props", function() {
-      console.log("$scope.props has been changed");
-    });
+    function _init(){
+      $scope.node   = NodeService.get({ id: $routeParams.id }); 
+      $scope.props  = PropService.query({ _creator: $routeParams.id });
+    }
 
     ngmqtt.connect('https://cpsiot.cs.uni-kl.de', { port: 9001, protocolVersion: 4 });
 
@@ -58,10 +55,10 @@ angular.module('clientApp')
     };
 
 
-    $scope.removeProp = function(propId){
+    $scope.removeProp = function(prop){
       console.log('entering $scope.removeProp');
 
-      PropService.delete({ id: propId });
+      prop.$delete();
       
       console.log('leaving $scope.removeProp');
     };
@@ -70,8 +67,12 @@ angular.module('clientApp')
     $scope.submitNode = function(){
       console.log('entering $scope.submitNode');
 
+      angular.forEach($scope.props, function(prop){
+        prop.$update();
+      });
+
       $scope.node.$update();
-      
+
       console.log('leaving $scope.submitNode');
     };
 
@@ -92,6 +93,7 @@ angular.module('clientApp')
       console.log("leaving listenMessage");
     });
 
-    console.log('leaving NodesupdateCtrl');
+    _init();
 
+    console.log('leaving NodesupdateCtrl');
 });
