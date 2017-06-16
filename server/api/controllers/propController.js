@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Prop = mongoose.model('Prop');
 
 exports.getAll = function(req, res){
-	Prop.find(function(err, props){
+	Prop.find(req.query, function(err, props){
 		if (err)
 			return res.status(500).send(err)
 

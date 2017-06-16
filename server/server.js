@@ -1,4 +1,5 @@
 const express = require('express'),
+  cors = require('cors'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
@@ -11,6 +12,7 @@ mongoose.connect('mongodb://localhost/bacon-lab');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 const nodeRoutes = require('./api/routes/nodeRoutes');
 const propRoutes = require('./api/routes/propRoutes');

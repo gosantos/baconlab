@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 const Node = mongoose.model('Node');
 
-exports.getAll = function(req, res) {
-	Node.find(function(err, nodes){
+exports.getAll = function(req, res) {	
+	Node.find(req.query, function(err, nodes){
 		if (err)
 			return res.status(500).send(err)
 
