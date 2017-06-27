@@ -8,17 +8,16 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('NodescreateCtrl', function ($scope, NodeService) {
-    console.log('entering NodescreateCtrl');
+  .controller('NodescreateCtrl', function ($scope, $location, NodeService) {
   	$scope.title = 'add';
 
   	$scope.node = new NodeService();
 
   	$scope.submitNode = function(){
-      console.log('entering $scope.submitNode');
-  		$scope.node.$save();
-      console.log('entering $scope.submitNode'); 
+  		$scope.node.$save(function(node){
+  			$location.url(`#/nodes/${$scope.node._id}`);
+  		});
+  		
   	};
     
-    console.log('leaving NodescreateCtrl');
   });

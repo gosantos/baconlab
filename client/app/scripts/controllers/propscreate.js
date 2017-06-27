@@ -8,19 +8,18 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('PropscreateCtrl', function ($scope, $routeParams, $location, PropService) {
-  	console.log("entering PropscreateCtrl");
-  	$scope.title = 'add';
+  .controller('PropscreateCtrl', function ($scope, $routeParams, $window, PropService) {
 
+  	const nodeId = $routeParams.id;
+
+  	$scope.title = 'add';
   	$scope.prop = new PropService();
 
-  	$scope.submitNode = function(){
-  		console.log("entering $scope.submitNode");
-  		$scope.prop._creator = $routeParams.id;
-  		$scope.prop.$save();
-      $location.url('http://www.google.com');
-  		console.log("leaving $scope.submitNode");
+  	$scope.submitProp = function(){
+  		$scope.prop._creator = nodeId;
+  		$scope.prop.$save(function(){
+  			$location.url(`#/nodes/${nodeId}`);
+  		});
   	};
   	
-  	console.log("leaving PropscreateCtrl");
   });

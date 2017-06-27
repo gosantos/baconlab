@@ -13,28 +13,8 @@
     <input type="text" ng-model="node.address" class="form-control" id="address">
   </div>
   <div class="form-group">
-    <label for="last_heartbeat">Last Heartbeat:</label>
-    <input type="text" ng-model="node.last_heartbeat" class="form-control" id="last_heartbeat">
-  </div>
-  <div data-ng-repeat="prop in props">
-    <div class="form-group">
-      <label for="prop_name">Prop Name:</label>
-      <input type="text" ng-model="prop.name" class="form-control" id="prop_name">
-    </div>
-    <div class="form-group">
-      <label for="prop_value">Value:</label>
-      <input type="text" ng-model="prop.value" class="form-control" id="prop_value">
-    </div>
-    <p class="text-right">
-      <button type="button" class='btn btn-success' ng-click="subscribe(prop.name)">Topic Subscribe</button>
-      <button type="button" class='btn btn-danger' ng-click="removeProp(prop)">Remove Property</button>
-    </p>
-  </div>
-  <div class="form-group">
-    <button type="button" class='btn btn-success' ng-click="subscribeAll()">Subscribe all</button>
-  </div>
-  <div class="form-group">
-    <a type="button" class='btn btn-primary' ng-href="/#/nodes/props/create/{{node._id}}">Add prop</a>
+    <label for="last-heartbeat">Last Heartbeat:</label>
+    <input type="text" ng-model="node.last_heartbeat" ng-readonly="true" class="form-control" id="last-heartbeat">
   </div>
   <div class="form-group">
     <button type="button" class='btn btn-primary text-capitalize' ng-click="submitNode()">{{title}} Node</button>

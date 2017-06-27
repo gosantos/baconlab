@@ -9,7 +9,8 @@
 angular.module('clientApp')
   .directive('propForm', function () {
     return {
-      templateUrl: '../views/prop-form.html',
-      restrict: 'E'
+        transclude: true,
+        templateUrl: '../views/prop-form.html',
+	    restrict: 'E'
     };
   });
