@@ -19,12 +19,12 @@ var paths = {
   styles: [yeoman.app + '/styles/**/*.scss'],
   test: ['test/spec/**/*.js'],
   testRequire: [
-    yeoman.app + '/bower_components/angular/angular.js',
-    yeoman.app + '/bower_components/angular-mocks/angular-mocks.js',
-    yeoman.app + '/bower_components/angular-resource/angular-resource.js',
-    yeoman.app + '/bower_components/angular-cookies/angular-cookies.js',
-    yeoman.app + '/bower_components/angular-sanitize/angular-sanitize.js',
-    yeoman.app + '/bower_components/angular-route/angular-route.js',
+    yeoman.app + '/node_modules/angular/angular.js',
+    yeoman.app + '/node_modules/angular-mocks/angular-mocks.js',
+    yeoman.app + '/node_modules/angular-resource/angular-resource.js',
+    yeoman.app + '/node_modules/angular-cookies/angular-cookies.js',
+    yeoman.app + '/node_modules/angular-sanitize/angular-sanitize.js',
+    yeoman.app + '/node_modules/angular-route/angular-route.js',
     'test/mock/**/*.js',
     'test/spec/**/*.js'
   ],
@@ -80,8 +80,8 @@ gulp.task('start:server', function() {
     // Change this to '0.0.0.0' to access the server from outside.
     port: 9000,
     middleware:function(connect, opt){
-      return [['/bower_components', 
-               connect["static"]('./bower_components')]]
+      return [['/node_modules', 
+               connect["static"]('./node_modules')]]
     }
   });
 });
@@ -92,8 +92,8 @@ gulp.task('start:server:test', function() {
     livereload: true,
     port: 9001,
     middleware:function(connect, opt){
-      return [['/bower_components', 
-               connect["static"]('./bower_components')]]
+      return [['/node_modules', 
+               connect["static"]('./node_modules')]]
     }
   });
 });
@@ -134,8 +134,8 @@ gulp.task('serve:prod', function() {
     livereload: true,
     port: 9000,
     middleware:function(connect, opt){
-      return [['/bower_components', 
-               connect["static"]('./bower_components')]]
+      return [['/node_modules', 
+               connect["static"]('./node_modules')]]
     }
   });
 });
@@ -153,7 +153,7 @@ gulp.task('test', ['start:server:test'], function () {
 gulp.task('bower', function () {
   return gulp.src(paths.views.main)
     .pipe(wiredep({
-      directory: /*yeoman.app +*/ 'bower_components',
+      directory: /*yeoman.app +*/ 'node_modules',
       ignorePath: '..'
     }))
   .pipe(gulp.dest(yeoman.app /*+ '/views'*/));

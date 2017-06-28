@@ -31,13 +31,20 @@
     "phantomjs-prebuilt": "^2.1.13",
     "rimraf": "^2.4.0",
     "run-sequence": "^1.1.1",
-    "wiredep": "^2.2.2"
+    "wiredep": "^2.2.2",
+    "angular-mocks": "^1.4.0"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
-  },
-  "dependencies": {}
+  },  
+  "dependencies": {
+    "angular": "^1.4.0",
+    "bootstrap": "^3.2.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "ngmqtt": "*"
+  }
 }
