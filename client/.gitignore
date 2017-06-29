@@ -2,4 +2,8 @@
 /dist
 /.tmp
 /.sass-cache
-/bower_components
+.yo-rc
+.editorconfig
+.gitattributes
+.jshintrc
+.jscsrc
