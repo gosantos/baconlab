@@ -6,9 +6,9 @@ const express = require('express'),
   Node = require('./api/models/nodeModel'),
   Prop = require('./api/models/propModel'),
   bodyParser = require('body-parser');
-  
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/bacon-lab'); 
+mongoose.connect('mongodb://localhost/bacon-lab:27017');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,3 +27,5 @@ app.use(function(req, res) {
 app.listen(port);
 
 console.log('RESTful API server started on: ' + port);
+
+module.exports = app;
