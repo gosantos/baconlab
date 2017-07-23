@@ -11,11 +11,6 @@ Make sure you have all of the following prerequisites installed in your machine:
 * Git - [Download & Install Git](https://git-scm.com/downloads). OSX and Linux machines typically have this already installed.
 * Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. If you encounter any problems, you can also use this [GitHub Gist](https://gist.github.com/isaacs/579814) to install Node.js.
 * MongoDB - [Download & Install MongoDB](http://www.mongodb.org/downloads), and make sure it's running on the default port (27017).
-* Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages. Make sure you've installed Node.js and npm first, then install bower globally using npm:
-
-```bash
-$ npm install -g bower
-```
 
 ## Cloning the repostiroy
 
@@ -30,15 +25,13 @@ $ git clone https://github.com/gosantos/baconlab.git
 In this project we have one directory for the backend (server) and another one for the frontend (client). So for that reason you should install each one separately.
 
 ```bash
-$ cd client 
+$ cd server
 $ npm install
-$ bower install
 ```
 
 ```bash
-$ cd client 
+$ cd client
 $ npm install
-$ bower install
 ```
 
 ## Starting the application
@@ -46,7 +39,7 @@ $ bower install
 In one terminal start the client with the following commands:
 
 ```bash
-$ cd client 
+$ cd client
 $ gulp serve
 ```
 
