@@ -38,3 +38,6 @@ jspm_packages
 
 # Removing Mac system files
 .DS_Store
+
+# Removing Webstorm temp folder
+.idea/

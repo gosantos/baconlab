@@ -1,9 +1,0 @@
-/node_modules
-/dist
-/.tmp
-/.sass-cache
-.yo-rc
-.editorconfig
-.gitattributes
-.jshintrc
-.jscsrc

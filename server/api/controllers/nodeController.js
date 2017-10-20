@@ -13,8 +13,7 @@ exports.getAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-	let node = new Node(req.body);
-
+    let node = new Node(req.body);
 	node.save((err, node) => {
 		if (err)
 			return res.status(500).json(err);

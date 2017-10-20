@@ -1,7 +1,7 @@
 const express = require('express'),
   cors = require('cors'),
   app = express(),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 4000,
   mongoose = require('mongoose'),
   Node = require('./api/models/nodeModel'),
   Prop = require('./api/models/propModel'),
